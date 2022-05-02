@@ -47,8 +47,8 @@ gem 'jbuilder'
 gem 'redis', '~> 4.0'
 
 # Service Objects  [https://www.rubydoc.info/gems/light-services/0.6.3] [https://www.rubydoc.info/gems/rails-patterns/0.11.0]
-# gem 'light-services', '~> 0.6.3'
-# gem 'rails-patterns'
+gem 'light-services', '~> 0.6.3'
+gem 'rails-patterns'
 
 # Pagination
 # gem 'pagy'
