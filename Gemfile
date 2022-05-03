@@ -19,7 +19,7 @@ gem 'rack-contrib'
 
 # Audit Bundle and Devise users.
 gem 'bundle-audit'
-gem 'devise'
+gem 'devise', git: 'https://github.com/heartcombo/devise', branch: 'main'
 gem 'devise-bootstrap-views', '~> 1.0'
 
 # Use the Thin web server [https://github.com/macournoyer/thin]
@@ -46,9 +46,8 @@ gem 'jbuilder'
 # Use Redis adapter to run Action Cable in production
 gem 'redis', '~> 4.0'
 
-# Service Objects  [https://www.rubydoc.info/gems/light-services/0.6.3] [https://www.rubydoc.info/gems/rails-patterns/0.11.0]
-gem 'light-services', '~> 0.6.3'
-gem 'rails-patterns'
+# Service Objects
+gem 'service_actor-rails'
 
 # Pagination
 # gem 'pagy'
@@ -66,7 +65,10 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 gem 'bootsnap', require: false
 
 # Use Sass to process CSS
-gem "sassc-rails"
+gem 'sassc-rails'
+
+# Faraday for api requests
+gem 'faraday', '~> 2.2'
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
@@ -86,7 +88,6 @@ group :development do
   gem 'foreman', '~> 0.87.2'
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
   gem 'dotenv-rails', '~> 2.7', '>= 2.7.6'
-  gem 'listen', '~> 3.3'
   gem 'pry-rails', '~> 0.3.9'
   gem 'web-console', '>= 4.1.0'
 end
@@ -102,4 +103,3 @@ group :test do
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
 end
-

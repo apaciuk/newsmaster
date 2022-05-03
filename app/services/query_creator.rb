@@ -34,20 +34,6 @@ class QueryCreator < ApplicationService
 
   private
 
-  def index
-    url = URI('GEOLOCATION_URL') || URI('https://ip-geo-location.p.rapidapi.com/ip/check?format=json')
-    http = Net::HTTP.new(url.host, url.port)
-    http.use_ssl = true if url.scheme == 'https' && !http.started?
-    http.verify_mode = OpenSSL::SSL::VERIFY_NONE
-    request = Net::HTTP::Get.new(url)
-    request['X-RapidAPI-Host'] = 'GEOLOCATION_HOST'
-    request['X-RapidAPI-Key'] = 'X_RAPIDAPI_KEY'
-    response = http.request(request)
-    loc_output = JSON.parse(response.read_body, symbolize_names: true)
-    render json: loc_output
-    run create_clim_query, loc_output:
-  end
-
   def create_clim_query
     url = URI('WEATHER_URL') || URI('https://community-open-weather-map.p.rapidapi.com/weather?units=imperial&q=')
     http = Net::HTTP.new(url.host, url.port)
